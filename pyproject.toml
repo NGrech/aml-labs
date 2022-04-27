@@ -19,6 +19,8 @@ regex = "^2022.4.24"
 sentencepiece = "^0.1.96"
 sacremoses = "^0.0.49"
 transformers = "^4.18.0"
+ipykernel = "^6.13.0"
+ipywidgets = "^7.7.0"
 
 
 [tool.poetry.dev-dependencies]
