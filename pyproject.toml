@@ -6,13 +6,32 @@ authors = ["Nigel Grech <nigel.grech@husqvarnagroup.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-torchvision = "^0.12.0"
-torch = "^1.11.0"
-torchtext = "^0.12.0"
+pandas = "^1.4.2"
+numpy = "^1.22.3"
 matplotlib = "^3.5.1"
-ipykernel = "^6.13.0"
+plotly = "^5.7.0"
+seaborn = "^0.11.2"
+Pillow = "^9.1.0"
+requests = "^2.27.1"
+tqdm = "^4.64.0"
+boto3 = "^1.22.0"
+regex = "^2022.4.24"
+sentencepiece = "^0.1.96"
+sacremoses = "^0.0.49"
+transformers = "^4.18.0"
+
 
 [tool.poetry.dev-dependencies]
+poethepoet = "^0.13.1"
+
+
+[tool.poe.tasks]
+win_cuda = "poetry run pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113"
+win_cpu = "poetry run pip3 install torch torchvision torchaudio"
+mac_cpu = "poetry run pip3 install torch torchvision torchaudio"
+linux_cuda = "poetry run pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113"
+linus_cpu = "poetry run pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu"
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
