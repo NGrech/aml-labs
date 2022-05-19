@@ -25,6 +25,9 @@ prettytable = "^3.2.0"
 sklearn = "^0.0"
 scikit-image = "^0.19.2"
 torchsummary = "^1.5.1"
+opencv-python = "^4.5.5"
+split-folder = "^0.1.1"
+split-folders = {extras = ["full"], version = "^0.5.1"}
 
 
 [tool.poetry.dev-dependencies]

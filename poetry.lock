@@ -609,6 +609,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "nb-utils"
+version = "0.1.1"
+description = "Python utilities"
+category = "main"
+optional = false
+python-versions = ">=3.2,<4.0"
+
+[[package]]
 name = "nbclient"
 version = "0.6.0"
 description = "A client library for executing notebooks. Formerly nbconvert's ExecutePreprocessor."
@@ -736,6 +744,22 @@ description = "NumPy is the fundamental package for array computing with Python.
 category = "main"
 optional = false
 python-versions = ">=3.8"
+
+[[package]]
+name = "opencv-python"
+version = "4.5.5.64"
+description = "Wrapper package for OpenCV python bindings."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+numpy = [
+    {version = ">=1.21.2", markers = "python_version >= \"3.10\" or python_version >= \"3.6\" and platform_system == \"Darwin\" and platform_machine == \"arm64\""},
+    {version = ">=1.19.3", markers = "python_version >= \"3.6\" and platform_system == \"Linux\" and platform_machine == \"aarch64\" or python_version >= \"3.9\""},
+    {version = ">=1.14.5", markers = "python_version >= \"3.7\""},
+    {version = ">=1.17.3", markers = "python_version >= \"3.8\""},
+]
 
 [[package]]
 name = "packaging"
@@ -1219,6 +1243,31 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "split-folder"
+version = "0.1.1"
+description = "Spilt folder into train/val/test subset"
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+
+[package.dependencies]
+nb-utils = ">=0.1.0,<0.2.0"
+
+[[package]]
+name = "split-folders"
+version = "0.5.1"
+description = "Split folders with files (e.g. images) into training, validation and test (dataset) folders."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+tqdm = {version = "*", optional = true, markers = "extra == \"full\""}
+
+[package.extras]
+full = ["tqdm"]
+
+[[package]]
 name = "stack-data"
 version = "0.2.0"
 description = "Extract data from python stack frames and tracebacks for informative displays"
@@ -1485,7 +1534,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "2bc3cf139fd5952353fdbd4264f7de6fdc76d11676e019372d49a5c8beac0b88"
+content-hash = "b32044e0343ceeee0e5f2c263cab278b50f20413cfe4f33c9c587ea7b51be316"
 
 [metadata.files]
 appnope = [
@@ -1867,6 +1916,10 @@ mistune = [
     {file = "mistune-0.8.4-py2.py3-none-any.whl", hash = "sha256:88a1051873018da288eee8538d476dffe1262495144b33ecb586c4ab266bb8d4"},
     {file = "mistune-0.8.4.tar.gz", hash = "sha256:59a3429db53c50b5c6bcc8a07f8848cb00d7dc8bdb431a4ab41920d201d4756e"},
 ]
+nb-utils = [
+    {file = "nb_utils-0.1.1-py3-none-any.whl", hash = "sha256:0950249097628b47d29fbf0faa4f5527d7dbda8020d30a1113c627cf82babfc3"},
+    {file = "nb_utils-0.1.1.tar.gz", hash = "sha256:b9fec5f3c264ddde9abb2db54f8570b37f6c4c44172b707d9037fbd7904a9c2d"},
+]
 nbclient = [
     {file = "nbclient-0.6.0-py3-none-any.whl", hash = "sha256:2eed35fc954716cdf0a01ea8cbdd9f9316761479008570059e2f5de29e139423"},
     {file = "nbclient-0.6.0.tar.gz", hash = "sha256:3f89a403c6badf24d2855a455b69a80985b3b27e04111243fdb6a88a28d27031"},
@@ -1912,6 +1965,15 @@ numpy = [
     {file = "numpy-1.22.3-cp39-cp39-win_amd64.whl", hash = "sha256:639b54cdf6aa4f82fe37ebf70401bbb74b8508fddcf4797f9fe59615b8c5813a"},
     {file = "numpy-1.22.3-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c34ea7e9d13a70bf2ab64a2532fe149a9aced424cd05a2c4ba662fd989e3e45f"},
     {file = "numpy-1.22.3.zip", hash = "sha256:dbc7601a3b7472d559dc7b933b18b4b66f9aa7452c120e87dfb33d02008c8a18"},
+]
+opencv-python = [
+    {file = "opencv-python-4.5.5.64.tar.gz", hash = "sha256:f65de0446a330c3b773cd04ba10345d8ce1b15dcac3f49770204e37602d0b3f7"},
+    {file = "opencv_python-4.5.5.64-cp36-abi3-macosx_10_15_x86_64.whl", hash = "sha256:a512a0c59b6fec0fac3844b2f47d6ecb1a9d18d235e6c5491ce8dbbe0663eae8"},
+    {file = "opencv_python-4.5.5.64-cp36-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ca6138b6903910e384067d001763d40f97656875487381aed32993b076f44375"},
+    {file = "opencv_python-4.5.5.64-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b293ced62f4360d9f11cf72ae7e9df95320ff7bf5b834d87546f844e838c0c35"},
+    {file = "opencv_python-4.5.5.64-cp36-abi3-win32.whl", hash = "sha256:6247e584813c00c3b9ed69a795da40d2c153dc923d0182e957e1c2f00a554ac2"},
+    {file = "opencv_python-4.5.5.64-cp36-abi3-win_amd64.whl", hash = "sha256:408d5332550287aa797fd06bef47b2dfed163c6787668cc82ef9123a9484b56a"},
+    {file = "opencv_python-4.5.5.64-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:7787bb017ae93d5f9bb1b817ac8e13e45dd193743cb648498fcab21d00cf20a3"},
 ]
 packaging = [
     {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
@@ -2485,6 +2547,14 @@ sklearn = [
 soupsieve = [
     {file = "soupsieve-2.3.2.post1-py3-none-any.whl", hash = "sha256:3b2503d3c7084a42b1ebd08116e5f81aadfaea95863628c80a3b774a11b7c759"},
     {file = "soupsieve-2.3.2.post1.tar.gz", hash = "sha256:fc53893b3da2c33de295667a0e19f078c14bf86544af307354de5fcf12a3f30d"},
+]
+split-folder = [
+    {file = "split-folder-0.1.1.tar.gz", hash = "sha256:dd3fe5c0e68ded297baac02cd84d641093cbd63cd3f852645be52e4dac281c6e"},
+    {file = "split_folder-0.1.1-py3-none-any.whl", hash = "sha256:6a25b183b23ebeff80c207b443d10c2fc11706f6b4839bdf5892a9720601a0b3"},
+]
+split-folders = [
+    {file = "split_folders-0.5.1-py3-none-any.whl", hash = "sha256:cb010e00f34d247b8e8bbfd6cfe527f871361d8524ed54734924e7efd261801f"},
+    {file = "split_folders-0.5.1.tar.gz", hash = "sha256:7127a226b90e00fa86cda4451fe015c6f3755bc3d627064adb9c5209fc8280f6"},
 ]
 stack-data = [
     {file = "stack_data-0.2.0-py3-none-any.whl", hash = "sha256:999762f9c3132308789affa03e9271bbbe947bf78311851f4d485d8402ed858e"},
