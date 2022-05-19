@@ -32,11 +32,11 @@ poethepoet = "^0.13.1"
 
 
 [tool.poe.tasks]
-win_cuda = "poetry run pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113"
-win_cpu = "poetry run pip3 install torch torchvision torchaudio"
-mac_cpu = "poetry run pip3 install torch torchvision torchaudio"
-linux_cuda = "poetry run pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113"
-linus_cpu = "poetry run pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu"
+win_cuda = "poetry run pip3 install torch torchvision torchaudio torchtext torchdata --extra-index-url https://download.pytorch.org/whl/cu113"
+win_cpu = "poetry run pip3 install torch torchvision torchaudio torchtext torchdata"
+mac_cpu = "poetry run pip3 install torch torchvision torchaudio torchtext torchdata"
+linux_cuda = "poetry run pip3 install torch torchvision torchaudio torchtext torchdata --extra-index-url https://download.pytorch.org/whl/cu113"
+linus_cpu = "poetry run pip3 install torch torchvision torchaudio torchtext torchdata --extra-index-url https://download.pytorch.org/whl/cpu"
 
 
 [build-system]
