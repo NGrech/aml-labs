@@ -30,7 +30,6 @@ split-folder = "^0.1.1"
 split-folders = {extras = ["full"], version = "^0.5.1"}
 datasets = "^2.2.1"
 
-
 [tool.poetry.dev-dependencies]
 poethepoet = "^0.13.1"
 
