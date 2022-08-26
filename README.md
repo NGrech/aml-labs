@@ -52,8 +52,3 @@ For Linux without cuda support:
 poe linux_cpu
 ```
 
-## Lab Notebooks
-
-### 1. Computer Vision
-
-1. [Getting started with CNNs](/1-computer-vision-lab/getting_started.ipynb)
